@@ -1,3 +1,13 @@
+import tn.esprit.gestionzoo.entities.Dolphin;
+import tn.esprit.gestionzoo.entities.Penguin;
+import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.Aquatic;
+import tn.esprit.gestionzoo.entities.Zoo;
+
+
+
+
+
 public class Main {
     public static void main(String[] args) {
         Animal lion = new Animal("Lions", "Lion", 12, true);
@@ -33,5 +43,16 @@ public class Main {
 
         Zoo biggerZoo = Zoo.compareZoo(myZoo, anotherZoo);
         System.out.println("The bigger zoo is: " + biggerZoo);
+        // Création des objets
+        Dolphin dolphin = new Dolphin("Delphinidae", "Dolly", 3, true, "Ocean", 25.5f);
+        Penguin penguin = new Penguin("Spheniscidae", "Pingu", 2, false, "Antarctica", 200f);
+
+        // Affichage des informations des animaux
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+        // Appel des méthodes swim
+        dolphin.swim();
+        penguin.swim();
     }
 }

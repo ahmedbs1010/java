@@ -1,8 +1,12 @@
+package tn.esprit.gestionzoo.entities;
+import tn.esprit.gestionzoo.entities.Animal;
+
+
 public class Zoo {
     private Animal[] animals;
     private String name;
     private String city;
-    private final int nbrCages = 20;
+    private final int nbrCages = 25;
     private int currentAnimalCount;
 
     public Zoo(String name, String city) {
@@ -65,8 +69,9 @@ public class Zoo {
         System.out.println("Zoo [Name: " + name + ", City: " + city + ", Number of Cages: " + nbrCages + "]");
     }
 
-    @Override
+
     public String toString() {
         return "Zoo [Name: " + name + ", City: " + city + ", Number of Cages: " + nbrCages + "]";
     }
 }
+
