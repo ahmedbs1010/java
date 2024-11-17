@@ -1,21 +1,20 @@
-// Fichier: Animal.java
 package tn.esprit.gestionzoo.entities;
 
 public class Animal {
-    private String family;
+    private String species;
     private String name;
     private int age;
-    private boolean isMammal;
+    private boolean isCarnivore;
 
-    public Animal(String family, String name, int age, boolean isMammal) {
-        this.family = family;
+    public Animal(String species, String name, int age, boolean isCarnivore) {
+        this.species = species;
         this.name = name;
         this.age = age;
-        this.isMammal = isMammal;
+        this.isCarnivore = isCarnivore;
     }
 
-    public String getFamily() {
-        return family;
+    public String getSpecies() {
+        return species;
     }
 
     public String getName() {
@@ -26,17 +25,17 @@ public class Animal {
         return age;
     }
 
-    public boolean isMammal() {
-        return isMammal;
+    public boolean isCarnivore() {
+        return isCarnivore;
     }
 
     @Override
     public String toString() {
         return "Animal{" +
-                "family='" + family + '\'' +
+                "species='" + species + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", isMammal=" + isMammal +
+                ", isCarnivore=" + isCarnivore +
                 '}';
     }
 }

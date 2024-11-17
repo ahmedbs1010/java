@@ -1,27 +1,31 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Dolphin extends Aquatic {
-    private float swimmingSpeed;
+public class Dolphin extends AquaticAnimal {
 
-    public Dolphin(String family, String name, int age, boolean isMammal, String habitat, float swimmingSpeed) {
-        super(family, name, age, isMammal, habitat);
+    private float swimmingSpeed;  // Vitesse de nage du dauphin
+
+    public Dolphin(String species, String name, int age, boolean isCarnivore, String habitat, float swimmingSpeed) {
+        super(species, name, age, isCarnivore, habitat);
         this.swimmingSpeed = swimmingSpeed;
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("The dolphin is swimming at " + swimmingSpeed + " km/h.");
     }
 
     public float getSwimmingSpeed() {
         return swimmingSpeed;
     }
 
-    @Override
-    public void swim() {
-        System.out.println("This dolphin is swimming.");
+    public void setSwimmingSpeed(float swimmingSpeed) {
+        this.swimmingSpeed = swimmingSpeed;
     }
 
     @Override
     public String toString() {
         return "Dolphin{" +
                 "swimmingSpeed=" + swimmingSpeed +
-                ", habitat='" + getHabitat() + '\'' +
                 "} " + super.toString();
     }
 }

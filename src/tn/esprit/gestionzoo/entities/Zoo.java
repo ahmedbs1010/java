@@ -1,13 +1,9 @@
-// Fichier: Zoo.java
 package tn.esprit.gestionzoo.entities;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Zoo {
-    private static final int MAX_ANIMALS = 25;
-    private static final int MAX_AQUATIC_ANIMALS = 10;
-
     private String name;
     private String location;
     private int capacity;
@@ -22,39 +18,15 @@ public class Zoo {
         this.aquaticAnimals = new ArrayList<>();
     }
 
-    public boolean addAnimal(Animal animal) {
-        if (isZooFull()) {
-            System.out.println("Le zoo est plein. Impossible d'ajouter plus d'animaux.");
-            return false;
-        }
-        if (animals.contains(animal)) {
-            System.out.println("Cet animal est déjà dans le zoo.");
-            return false;
+    public void addAnimal(Animal animal) throws ZooFullException {
+        if (animals.size() >= capacity) {
+            throw new ZooFullException("Le zoo est plein, impossible d'ajouter plus d'animaux !");
         }
         animals.add(animal);
-        return true;
     }
 
     public void addAquaticAnimal(Aquatic aquatic) {
-        if (aquaticAnimals.size() < MAX_AQUATIC_ANIMALS) {
-            aquaticAnimals.add(aquatic);  // Ajout d'un animal aquatique à la liste
-        } else {
-            System.out.println("Le zoo a atteint le nombre maximum d'animaux aquatiques.");
-        }
-    }
-
-    public boolean removeAnimal(Animal animal) {
-        return animals.remove(animal);
-    }
-
-    public boolean isZooFull() {
-        return animals.size() >= capacity;
-    }
-
-    public void displayAnimals() {
-        for (Animal animal : animals) {
-            System.out.println(animal);
-        }
+        aquaticAnimals.add(aquatic);
     }
 
     public void displayAquaticAnimalsSwim() {
@@ -73,45 +45,23 @@ public class Zoo {
         return maxDepth;
     }
 
-    public void displaySwimOfAllAquatics() {
-        for (Aquatic aquatic : aquaticAnimals) {
-            aquatic.swim();  // Appel de la méthode swim pour chaque animal aquatique
-        }
-    }
-
     public void displayNumberOfAquaticsByType() {
-        int dolphinCount = 0;
-        int penguinCount = 0;
-
+        int dolphins = 0;
+        int penguins = 0;
         for (Aquatic aquatic : aquaticAnimals) {
             if (aquatic instanceof Dolphin) {
-                dolphinCount++;
+                dolphins++;
             } else if (aquatic instanceof Penguin) {
-                penguinCount++;
+                penguins++;
             }
         }
-
-        System.out.println("Nombre de dauphins : " + dolphinCount);
-        System.out.println("Nombre de pingouins : " + penguinCount);
+        System.out.println("Nombre de dauphins : " + dolphins);
+        System.out.println("Nombre de pingouins : " + penguins);
     }
 
-    public int searchAnimal(Animal animal) {
-        for (int i = 0; i < animals.size(); i++) {
-            if (animals.get(i).equals(animal)) {
-                return i;  // Retourne l'index de l'animal
-            }
+    public void displayAnimals() {
+        for (Animal animal : animals) {
+            System.out.println(animal);
         }
-        return -1;  // Retourne -1 si l'animal n'est pas trouvé
-    }
-
-    @Override
-    public String toString() {
-        return "Zoo{" +
-                "name='" + name + '\'' +
-                ", location='" + location + '\'' +
-                ", capacity=" + capacity +
-                ", animals=" + animals.size() +
-                ", aquaticAnimals=" + aquaticAnimals.size() +
-                '}';
     }
 }
