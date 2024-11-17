@@ -8,9 +8,13 @@ public class Dolphin extends Aquatic {
         this.swimmingSpeed = swimmingSpeed;
     }
 
-
     public float getSwimmingSpeed() {
         return swimmingSpeed;
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("This dolphin is swimming.");
     }
 
     @Override
@@ -18,12 +22,6 @@ public class Dolphin extends Aquatic {
         return "Dolphin{" +
                 "swimmingSpeed=" + swimmingSpeed +
                 ", habitat='" + getHabitat() + '\'' +
-                ", name='" + getName() + '\'' +
-                ", age=" + getAge() +
                 "} " + super.toString();
-    }
-
-    public void swim() {
-        System.out.println("This dolphin is swimming.");
     }
 }

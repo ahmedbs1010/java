@@ -1,3 +1,4 @@
+// Fichier: Animal.java
 package tn.esprit.gestionzoo.entities;
 
 public class Animal {
@@ -9,10 +10,9 @@ public class Animal {
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
-        setAge(age);
+        this.age = age;
         this.isMammal = isMammal;
     }
-
 
     public String getFamily() {
         return family;
@@ -28,14 +28,6 @@ public class Animal {
 
     public boolean isMammal() {
         return isMammal;
-    }
-
-    public void setAge(int age) {
-        if (age >= 0) {
-            this.age = age;
-        } else {
-            throw new IllegalArgumentException("Age cannot be negative");
-        }
     }
 
     @Override
