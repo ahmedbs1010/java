@@ -7,4 +7,5 @@ public interface IDepartement<T> {
     void supprimerDepartement(T t);
     void displayDepartement();
     TreeSet<T> trierDepartementById();
+
 }

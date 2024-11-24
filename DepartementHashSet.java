@@ -25,6 +25,7 @@
             departements.remove(departement);
         }
 
+
         @Override
         public void displayDepartement() {
             departements.forEach(System.out::println);

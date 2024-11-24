@@ -9,10 +9,12 @@ public class Main {
         Departement d2 = new Departement(2, "HR", 15);
         Departement d3 = new Departement(3, "Reseau", 10);
 
+
         gestionDepartement.ajouterDepartement(d1);
         gestionDepartement.ajouterDepartement(d2);
         gestionDepartement.ajouterDepartement(d3);
 
+        
         System.out.println("Liste des departements :");
         gestionDepartement.displayDepartement();
 

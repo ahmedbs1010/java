@@ -9,6 +9,7 @@ public class Departement {
     public Departement() {
     }
 
+
     
     public Departement(int id, String nomDepartement, int nbEmployes) {
         this.id = id;
