@@ -63,14 +63,12 @@ public class Employe {
 
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Employe employe = (Employe) obj;
-        return id == employe.id && Objects.equals(nom, employe.nom);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employe employe = (Employe) o;
+        return id == employe.id;
     }
-
-
     @Override
     public String toString() {
         return "Employe{" +

@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         DepartementHashSet gestionDepartement = new DepartementHashSet();
+        AffectationHashMap affectation = new AffectationHashMap();
 
         Departement d1 = new Departement(1, "IT", 20);
         Departement d2 = new Departement(2, "HR", 15);
@@ -32,13 +33,32 @@ public class Main {
 
         SocieteArrayList gestionEmployes = new SocieteArrayList();
 
-        Employe e1 = new Employe(1, "Mhaysi", "Ahmed", "IT", 3);
-        Employe e2 = new Employe(2, "Mouihbi", "Hana", "HR", 2);
+        Employe e1 = new Employe(1, "Mhaysi", "Ahmed", "", 3);
+        Employe e2 = new Employe(2, "Mouihbi", "Hana", "", 2);
         Employe e3 = new Employe(3, "Tounsi", "Amal", "Reseau", 4);
 
         gestionEmployes.ajouterEmploye(e1);
         gestionEmployes.ajouterEmploye(e2);
         gestionEmployes.ajouterEmploye(e3);
+
+        affectation.ajouterEmployeDepartement(e1, d1);
+        affectation.ajouterEmployeDepartement(e2, d2);
+        affectation.afficherEmployesEtDepartements();
+
+        affectation.ajouterEmployeDepartement(e1, d2);
+        affectation.afficherEmployesEtDepartements();
+
+        affectation.supprimerEmploye(e1);
+        affectation.afficherEmployesEtDepartements();
+
+
+        affectation.ajouterEmployeDepartement(e1, d1);
+        affectation.supprimerEmployeEtDepartement(e1, d1);
+        affectation.afficherEmployesEtDepartements();
+
+        System.out.println("Employé Mhaysi existe ? " + affectation.rechercherEmploye(e2));
+        System.out.println("Département IT existe ? " + affectation.rechercherDepartement(d1));
+        System.out.println("Employés triés : " + affectation.trierMap());
 
         System.out.println("\nListe des employes :");
         gestionEmployes.displayEmploye();
